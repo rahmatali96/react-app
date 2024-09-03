@@ -31,7 +31,7 @@ jobs:
           context: .
           file: path/to/Dockerfile
           push: false
-          tags: your-repo/react-app:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/react-app:latest
 
       - name: Push Docker image
         uses: docker/build-push-action@v3
@@ -39,4 +39,4 @@ jobs:
           context: .
           file: path/to/Dockerfile
           push: true
-          tags: your-repo/react-app:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/react-app:latest
