@@ -1,0 +1,31 @@
+/* Navigation.css */
+.nav {
+  background-color: white; /* Set the background to white */
+  padding: 10px 20px; /* Add padding with 20px on the left and right */
+}
+
+.nav-list {
+  list-style-type: none; /* Remove bullet points */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Align items in a row */
+  justify-content: flex-start; /* Align items to the start (left) */
+}
+
+.nav-item {
+  margin: 0 15px; /* Add space between menu items */
+}
+
+.nav-item a {
+  color: black; /* Set text color to black */
+  text-decoration: none; /* Remove underline from links */
+  font-size: 16px; /* Set font size */
+  padding: 8px 16px; /* Add padding around the link text */
+  border-radius: 4px; /* Round the corners */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nav-item a:hover {
+  background-color: #f0f0f0; /* Light gray background on hover */
+  filter: drop-shadow(0 0 2em hsla(0, 90%, 47%, 0.804));
+}
