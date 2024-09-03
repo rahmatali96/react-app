@@ -1,4 +1,4 @@
-name: Build Docker Image
+name: Build and Deploy Docker Image
 
 on:
   push:
@@ -20,16 +20,23 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Cache Docker layers
-        uses: docker/cache-action@v2
+        uses: docker/build-push-action@v3
         with:
-          path: |
-            ~/docker
-          key: ${{ runner.os }}-build-${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Build Docker image
-        run: docker build -t your-repo/react-app:latest -f path/to/Dockerfile .
-        # Update `path/to/Dockerfile` to the correct location of your Dockerfile
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: path/to/Dockerfile
+          push: false
+          tags: your-repo/react-app:latest
 
       - name: Push Docker image
-        run: docker push your-repo/react-app:latest
-        # Replace `your-repo/react-app:latest` with your actual repository and tag
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: path/to/Dockerfile
+          push: true
+          tags: your-repo/react-app:latest
