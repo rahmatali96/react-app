@@ -29,14 +29,14 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: path/to/Dockerfile
+          file: ../Dockerfile
           push: false
-          tags: rahmatali/react-app:latest
+          tags: rahmatali/react-app
 
       - name: Push Docker image
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: path/to/Dockerfile
+          file: ../Dockerfile
           push: true
           tags: rahmatali/react-app:latest
